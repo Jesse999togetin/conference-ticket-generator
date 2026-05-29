@@ -1,0 +1,149 @@
+/* ==========================================================================
+   1. EXTERNAL IMPORTS & GLOBAL VARIABLES
+   ========================================================================== */
+
+/* Fetch the Inconsolata font from Google's servers */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap');
+
+/* ==========================================================================
+   2. BASE & LAYOUT ELEMENTS
+   ========================================================================== */
+
+body {
+  font-family: 'Inconsolata', monospace;
+  background-color: hsl(248, 70%, 10%);
+  color: #ffffff;
+  min-height: 100vh;
+  
+  /* Layering background vector illustrations */
+  background-image: 
+    url('assets/images/pattern-squiggly-line-top.svg'),
+    url('assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg'),
+    url('assets/images/pattern-lines.svg'),
+    url('assets/images/background-desktop.png');
+
+  /* Tell the browser NOT to repeat or tile these graphics */
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+
+  /* Match each image to its exact location coordinate on the screen layout */
+  background-position: 
+    top right,          /* Top squiggly line stays pinned top right */
+    bottom left,        /* Bottom rings/squiggles stay pinned bottom left */
+    top center,         /* Blueprint lines track down from the top center */
+    center center;      /* Main purple atmosphere glow stays dead center */
+
+  /* Control the scale and stretch properties of each asset */
+  background-size: 
+    auto,               /* Keep top squiggle its natural size */
+    auto,               /* Keep bottom rings their natural size */
+    contain,            /* Let the grid lines scale smoothly with the width */
+    cover;              /* Force the purple glow to stretch and cover the entire screen viewport */
+}
+
+/* ==========================================================================
+   3. FORM CONTROL COMPONENTS & INPUT STATES
+   ========================================================================== */
+
+/* Style form labels to match the design guide spec sheet typography */
+.form-label {
+  font-size: 20px;
+  color: hsl(252, 6%, 83%);
+}
+
+/* Make input fields glassy and translucent */
+.custom-input {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff;
+  border-radius: 20px;
+  height: 65px;
+}
+
+/* Force placeholder text strings to be visible and clear across engines */
+.custom-input::placeholder {
+  color: hsl(252, 6%, 70%) !important;
+  opacity: 1; /* Prevents mobile browsers from rendering placeholders too faint */
+}
+
+/* Smooth active interaction state glow when a field receives user focus */
+.custom-input:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: hsl(7, 88%, 67%) !important; /* Glows signature orange on focus */
+  box-shadow: 0 0 0 0.25rem rgba(231, 124, 107, 0.25) !important;
+}
+
+/* ==========================================================================
+   4. FILE UPLOAD DROPZONE
+   ========================================================================== */
+
+/* Style the interactive drag-and-drop file upload frame box */
+.upload-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px dashed hsl(252, 6%, 83%);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Subtle hover feedback effect when cursor intersects selection zone boundaries */
+.upload-box:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: hsl(7, 88%, 67%); /* Shifts dashes to orange theme color */
+}
+
+/* ==========================================================================
+   5. ACTION INTERACTIVE BUTTONS
+   ========================================================================== */
+
+/* Standard static default state of the primary generation action trigger */
+.btn-generate {
+  background-color: hsl(7, 88%, 67%);
+  color: hsl(248, 70%, 10%); /* Deep background contrast color matching layout text requirements */
+  border: none;
+  border-radius: 20px;
+  height: 65px;
+  transition: all 0.3s ease; /* Transitions background shifts smoothly */
+}
+
+/* Active hover inversion mutation state rules */
+.btn-generate:hover {
+  background-color: hsl(7, 71%, 60%);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   6. DYNAMIC CONFERENCE TICKET COMPONENT
+   ========================================================================== */
+
+/* The main structural envelope framework container card */
+.ticket-card {
+  background: url('assets/images/pattern-ticket.svg') no-repeat center center;
+  background-size: 100% 100%;
+  width: 100%;
+  max-width: 600px; 
+  height: 270px; /* Rigid constraint limit locks container vertical vector stretching */
+  position: relative;
+  color: #ffffff;
+}
+
+/* Dedicated internal alignment frame locking user content into left quadrant fields */
+.ticket-body-content {
+  position: absolute;
+  left: 24px;
+  top: 10px; /* FIXED: Corrected syntax typo from '10x' to '10px' */
+  bottom: 24px;
+  right: 10px; /* Strategic protective layout margin blocks text rendering overflow into right stub */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Spreads top elements and badge rows evenly */
+}
+
+/* Unique numeric barcode serialization stub rotated to fit right side margins */
+.ticket-serial-stub {
+  position: absolute;
+  right: -10px; /* Tweaked location alignment offset inside target ticket bounds */
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg); /* Structural 90-degree layout rotation */
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.3);
+}
