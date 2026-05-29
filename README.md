@@ -3,7 +3,7 @@
 A dynamic, fully responsive conference ticket generator interface built using **HTML5, CSS3 (Modular Architecture), Bootstrap 5, and Vanilla JavaScript**. This project features client-side state management, responsive background layouts, and real-time DOM updates.
 
 ## 🚀 Live Demo
-*(We will paste your GitHub Pages link right here in the next step!)*
+https://jesse999togetin.github.io/conference-ticket-generator
 
 ---
 
